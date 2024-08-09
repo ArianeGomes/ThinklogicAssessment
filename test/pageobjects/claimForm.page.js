@@ -19,12 +19,14 @@ class claimForm {
         await this.name.setValue(name)
         await this.email.setValue(email)
 
-        await this.addPurchase.click()
-        await this.date.click()
-        await this.date.setValue(date)
+        if (date != "" || state != "") {
+            await this.addPurchase.click()
+            await this.date.click()
+            await this.date.setValue(date)
 
-        await this.stateDropdown.click()
-        await $(`//li[normalize-space()='${state}']`).click()
+            await this.stateDropdown.click()
+            await $(`//li[normalize-space()='${state}']`).click()
+        }
 
         await this.confirmation.click()
         await this.signature.setValue(signature)

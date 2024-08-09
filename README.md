@@ -47,7 +47,18 @@ await expect(element).toEqual(expect.stringContaining('*required'));
 ```
 
 
+**Failed Case - Missing Purchase**
+
+- **Description**: Tests the submission of the claim form with missing purchase information.
+
+- **Code**:
+```sh
+await claimForm.submit('Ariane', 'test@thinklogic.com', '', '', 'Ariane Gomes')
+const element = await $('.container').getText();
+await expect(element).toEqual(expect.stringContaining('Entries in list must be between 1 and 20.'));
+```
+
+
 ## Conclusion
 
 This project helps in automating the testing process for the Claim Form application, ensuring that the form submission works as expected under different scenarios. By running these tests, developers can quickly identify and fix issues, leading to a more reliable and robust application.
-
