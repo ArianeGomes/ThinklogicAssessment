@@ -8,15 +8,17 @@ The purpose of this project is to ensure the functionality of the Claim Form app
 
 ## Setup
 
-1. Clone the repository:
+1. Download and run Git and Node.js installers
+2. Clone the repository:
     ```sh
     git clone <repository-url>
     ```
-2. Install the dependencies:
+3. Install the dependencies:
     ```sh
     npm install
+    npm init wdio@latest <project-path>
     ```
-3. Run the tests:
+4. Run the tests:
     ```sh
     npx wdio run wdio.conf.js
     ```
