@@ -1,12 +1,12 @@
 class claimForm {
 
-    get name() { return $("#c__ClaimantInfo_Name_ee85a0da") }
-    get email() { return $("#c__ClaimantInfo_Email_ee85a0da") }
+    get name() { return $("//input[@id='c__ClaimantInfo_Name_ee85a0da']") }
+    get email() { return $("//input[@id='c__ClaimantInfo_Email_ee85a0da']") }
     get addPurchase() { return $("//button[normalize-space()='Add A Purchase']") }
     get date() { return $("//input[@type='date']") }
-    get stateDropdown() { return $(".null-value")}
+    get stateDropdown() { return $("/html//div[@id='contact-form']/div[@class='container']//div[@class='cms-form-app cms-form-app-ee85a0da']/div/div[3]/div/div[1]/div")}
     get confirmation() { return $("//span[@tabindex='0']") }
-    get signature() { return $("#c__Signature_SignatureText_ee85a0da") }
+    get signature() { return $("//div[7]/input") }
     get submitButton() { return $("//button[normalize-space()='Submit']") }
 
     open() {
@@ -24,6 +24,8 @@ class claimForm {
             await this.date.click()
             await this.date.setValue(date)
 
+            //await stateDropdown.selectByAttribute('role', state);
+
             await this.stateDropdown.click()
             await $(`//li[normalize-space()='${state}']`).click()
         }
@@ -35,7 +37,7 @@ class claimForm {
 
         await this.submitButton.click()
 
-        await browser.pause(500);
+        await browser.pause(2000);
     }
 }
 

@@ -6,8 +6,8 @@ describe('Claim Form Automation Test', async () => {
         await claimForm.open()
 
         await claimForm.submit('Ariane', 'test@thinklogic.com', '08/09/2024', 'CA', 'Ariane Gomes')
-        
-        const element = await $('.container').getText();
+
+        const element = await $("//div[@id='contact-form']/div[@class='container']").getText();
         await expect(element).toEqual(expect.stringContaining('Your claim has been submitted.'));
     });
 
@@ -16,7 +16,7 @@ describe('Claim Form Automation Test', async () => {
 
         await claimForm.submit('Ariane', '', '08/09/2024', 'CA', '')
 
-        const element = await $('.container').getText();
+        const element = await $("//div[@id='contact-form']/div[@class='container']").getText();
         await expect(element).toEqual(expect.stringContaining('*required'));
     })
 
@@ -25,8 +25,8 @@ describe('Claim Form Automation Test', async () => {
 
         await claimForm.submit('Ariane', 'test@thinklogic.com', '', '', 'Ariane Gomes')
 
-        const element = await $('.container').getText();
+        const element = await $("//div[@id='contact-form']/div[@class='container']").getText();
         await expect(element).toEqual(expect.stringContaining('Entries in list must be between 1 and 20.'));
     })
-    
+
 });
