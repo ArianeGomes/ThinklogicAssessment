@@ -32,7 +32,7 @@ The purpose of this project is to ensure the functionality of the Claim Form app
 - **Code**:
 ```sh
 await claimForm.submit('Ariane', 'test@thinklogic.com', '08/09/2024', 'CA', 'Ariane Gomes')
-const element = await $('.container').getText();
+const element = await $("//div[@id='contact-form']/div[@class='container']").getText();
 await expect(element).toEqual(expect.stringContaining('Your claim has been submitted.'));
 ```
 
@@ -44,7 +44,7 @@ await expect(element).toEqual(expect.stringContaining('Your claim has been submi
 - **Code**:
 ```sh
 await claimForm.submit('Ariane', '', '08/09/2024', 'CA', '')
-const element = await $('.container').getText();
+const element = await $("//div[@id='contact-form']/div[@class='container']").getText();
 await expect(element).toEqual(expect.stringContaining('*required'));
 ```
 
@@ -56,7 +56,7 @@ await expect(element).toEqual(expect.stringContaining('*required'));
 - **Code**:
 ```sh
 await claimForm.submit('Ariane', 'test@thinklogic.com', '', '', 'Ariane Gomes')
-const element = await $('.container').getText();
+const element = await $("//div[@id='contact-form']/div[@class='container']").getText();
 await expect(element).toEqual(expect.stringContaining('Entries in list must be between 1 and 20.'));
 ```
 
