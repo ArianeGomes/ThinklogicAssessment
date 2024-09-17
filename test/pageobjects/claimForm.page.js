@@ -24,8 +24,6 @@ class claimForm {
             await this.date.click()
             await this.date.setValue(date)
 
-            //await stateDropdown.selectByAttribute('role', state);
-
             await this.stateDropdown.click()
             await $(`//li[normalize-space()='${state}']`).click()
         }
@@ -33,10 +31,7 @@ class claimForm {
         await this.confirmation.click()
         await this.signature.setValue(signature)
 
-        await browser.pause(2000);
-
         await this.submitButton.click()
-
         await browser.pause(2000);
     }
 }
